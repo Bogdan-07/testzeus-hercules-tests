@@ -4,14 +4,17 @@ trigger:
       - main  # O il branch che preferisci
 
 pool:
-  vmImage: 'ubuntu-latest'  # Usa Ubuntu
+  vmImage: 'ubuntu-latest'  # Usa Ubuntu per eseguire lo script .sh
 
 steps:
-# 1. Checkout del codice
-- task: Checkout@2
-  displayName: 'Checkout code from repository'
+# 1. Checkout del codice da GitHub
+- task: DownloadGitHubRelease@0
+  inputs:
+    userrepository: 'https://github.com/Bogdan-07/testzeus-hercules-tests'  # URL del tuo repository
+    connection: 
+  displayName: 'Checkout code from GitHub'
 
-# 2. Esegui init.sh
+# 2. Rendi eseguibile e esegui init.sh per installare TestZeus-Hercules
 - script: |
     chmod +x ./init.sh  # Rendi eseguibile init.sh
     ./init.sh  # Esegui lo script di installazione
