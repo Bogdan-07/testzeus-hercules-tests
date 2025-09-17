@@ -7,16 +7,9 @@ pool:
   vmImage: 'ubuntu-latest'  # Usa Ubuntu per eseguire lo script .sh
 
 steps:
-# 1. Checkout del codice da GitHub
-- task: DownloadGitHubRelease@0
-  inputs:
-    userrepository: 'https://github.com/Bogdan-07/testzeus-hercules-tests'  # URL del tuo repository
-    connection: github.com_Bogdan-07
-    version: 0
-  displayName: 'Checkout code from GitHub'
-
 # 2. Rendi eseguibile e esegui init.sh per installare TestZeus-Hercules
 - script: |
+    cd $(Build.SourcesDirectory)
     chmod +x ./init.sh  # Rendi eseguibile init.sh
     ./init.sh  # Esegui lo script di installazione
   displayName: 'Run init.sh to install TestZeus-Hercules'
