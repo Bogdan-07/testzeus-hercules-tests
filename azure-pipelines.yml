@@ -1,18 +1,18 @@
 trigger:
   branches:
     include:
-      - main  # O il branch che vuoi monitorare
+      - main  # O il branch che preferisci
 
 pool:
-  vmImage: 'ubuntu-latest'  # Se lo script .sh è per Linux (modifica se usi Windows)
+  vmImage: 'ubuntu-latest'  # Usa Ubuntu
 
 steps:
-# 1. Clona il repository (Azure DevOps fa questo automaticamente)
-- task: Checkout@1
+# 1. Checkout del codice
+- task: Checkout@2
   displayName: 'Checkout code from repository'
 
-# 2. Rendi eseguibile e esegui lo script .sh
+# 2. Esegui init.sh
 - script: |
-    chmod +x init.sh
-    ./init.sh  # Esegui lo script
-  displayName: 'Run TestZeus-Hercules installation script'
+    chmod +x ./init.sh  # Rendi eseguibile init.sh
+    ./init.sh  # Esegui lo script di installazione
+  displayName: 'Run init.sh to install TestZeus-Hercules'
