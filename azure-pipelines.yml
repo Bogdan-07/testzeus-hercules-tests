@@ -13,6 +13,6 @@ steps:
 
 # 2. Rendi eseguibile e esegui lo script .sh
 - script: |
-    chmod +x ./init.sh
+    chmod +x init.sh
     ./init.sh  # Esegui lo script
   displayName: 'Run TestZeus-Hercules installation script'
