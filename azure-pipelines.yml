@@ -11,7 +11,7 @@ steps:
 - task: DownloadGitHubRelease@0
   inputs:
     userrepository: 'https://github.com/Bogdan-07/testzeus-hercules-tests'  # URL del tuo repository
-    connection: 
+    connection: github.com_Bogdan-07
   displayName: 'Checkout code from GitHub'
 
 # 2. Rendi eseguibile e esegui init.sh per installare TestZeus-Hercules
