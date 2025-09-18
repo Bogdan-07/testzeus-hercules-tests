@@ -1,15 +1,17 @@
 trigger:
   branches:
     include:
-      - main  # O il branch che preferisci
+      - main
 
 pool:
-  vmImage: 'ubuntu-latest'  # Usa Ubuntu per eseguire lo script .sh
+  vmImage: 'ubuntu-latest'
 
 steps:
-# 2. Rendi eseguibile e esegui init.sh per installare TestZeus-Hercules
 - script: |
     cd $(Build.SourcesDirectory)
-    chmod +x ./init.sh  # Rendi eseguibile init.sh
-    ./init.sh  # Esegui lo script di installazione
-  displayName: 'Run init.sh to install TestZeus-Hercules'
+    chmod +x ./init.sh
+    ./init.sh
+
+    > opt/input/test.feature
+    
+  displayName:
