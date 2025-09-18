@@ -12,6 +12,4 @@ steps:
     chmod +x ./init.sh
     ./init.sh
 
-    > opt/input/test.feature
-    
   displayName:
